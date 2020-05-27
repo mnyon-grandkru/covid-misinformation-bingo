@@ -1,5 +1,4 @@
-window.onload = initAll;
-var usedNums = new Array(76);
+let usedNums = new Array(76);
 
 function initAll() {
   if (document.getElementById) {
@@ -12,16 +11,16 @@ function initAll() {
 }
 
 function newCard() {
-  for(var i=0 ; i<24 ; i++){
+  for(let i=0 ; i<24 ; i++){
       setSquare(i);
     }
 }
 
 function setSquare(thisSquare){
-  var currentSquare = "square" + thisSquare;
-  var colPlace = new Array(0,1,2,3,4,0,1,2,3,4,0,1,3,4,0,1,2,3,4,0,1,2,3,4);
-  var colBasis = colPlace[thisSquare] * 15;
-  var newNum = colBasis + getNewNum() + 1;
+  let currentSquare = "square" + thisSquare;
+  let colPlace = new Array(0,1,2,3,4,0,1,2,3,4,0,1,3,4,0,1,2,3,4,0,1,2,3,4);
+  let colBasis = colPlace[thisSquare] * 15;
+  let newNum = colBasis + getNewNum() + 1;
 
   do{
     newNum = colBasis + getNewNum() + 1;
@@ -36,10 +35,12 @@ function getNewNum() {
 }
 
 function anotherCard() {
-  for (var i = 1; i < usedNums.length; i++) {
+  for (let i = 1; i < usedNums.length; i++) {
     usedNums[i] = false;
   };
 
   newCard();
   return false;
 }
+
+export { initAll, newCard, setSquare, getNewNum, anotherCard }
