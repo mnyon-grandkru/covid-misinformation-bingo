@@ -1,3 +1,4 @@
+
 let usedNums = new Array(76);
 
 function initAll() {
